@@ -1,0 +1,15 @@
+filters:
+  and:
+    - file.inFolder("Shared/tfm_prior_subvault/Calender/Meetings")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - meeting date
+    sort:
+      - property: meeting date
+        direction: DESC
+    limit: 10
+    columnSize:
+      file.name: 376

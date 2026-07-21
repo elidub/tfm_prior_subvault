@@ -1,0 +1,16 @@
+filters:
+  and:
+    - file.inFolder("Shared/tfm_prior_subvault/Sources")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - title
+      - authors
+      - year
+    sort:
+      - property: year
+        direction: DESC
+    columnSize:
+      file.name: 376

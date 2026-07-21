@@ -1,0 +1,15 @@
+filters:
+  and:
+    - file.inFolder("Shared/tfm_prior_subvault/Tasks")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - creation date
+      - status
+    sort:
+      - property: creation date
+        direction: ASC
+    columnSize:
+      file.name: 376
