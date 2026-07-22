@@ -1,5 +1,11 @@
 # Shared Obsidian Subvault for TFM Prior project
 
+## Installation setup
+
+1. Clone this repository into `<main vault root>/Shared/tfm_prior_subvault`, i.e. it should live inside a `Shared/` folder within your main Obsidian vault.
+2. Open your main vault in Obsidian, or reload it if it was already open, so Obsidian picks up the new folder.
+3. Install and configure the community plugins listed in [Plugin settings](#plugin-settings).
+
 ## Subvault structure
 This Obsidian subvault should live in a 'main vault' such that all your customizations (such as themes and plugin settings) are not part of the subvault. In order for this work, this subvault `tfm_prior_subvault` should live as `<main vault root>/Shared/tfm_prior_subvault`, and some plugin in the main vault should be set (discussed below). Please note that:
 - The term'subvault' is not a widely-used term within the Obsidian community.
