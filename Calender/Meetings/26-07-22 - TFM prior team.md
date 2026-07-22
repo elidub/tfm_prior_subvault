@@ -2,6 +2,11 @@
 creation date: 26-07-21
 meeting date: 26-07-22
 ---
+### ToDo's
+- read through the ICML papers ([[First literature review]]) and draft up a brief overview on the experiments conducted in each paper and its conclusion. 
+- have the context of our research objective in mind while reading through the papers
+- goal is to design an experiment. In order to do this first read through experiments already conducted which will help drive our own
+
 ### Setup
 - Discuss setup [[README]]
 
