@@ -1,5 +1,6 @@
 ---
-meeting date: 2026-07-22
+creation date: 26-07-21
+meeting date: 26-07-22
 ---
 ### Setup
 - Discuss setup [[README]]

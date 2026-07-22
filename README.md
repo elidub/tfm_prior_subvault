@@ -82,9 +82,12 @@ In its settings:
 	- Database 1: `TFM Pior`
 	- Database source: `Zotero (local API)`
 	- Group library ID: `6602565`
-- Literature notes
+- Literature notes →
 	- Literature notes folder: `Shared/tfm_prior_subvault/Sources`
+- Literature note templates
+	- Literature note content template file: `Shared/tfm_prior_subvault/Extras/Templates/citation-content-template.md`
 
+![[Pasted image 20260722100441.png]]
 
 #### Bases
 [Bases](https://help.obsidian.md/bases) are Obsidian's native way to render notes as a database-like table. The `.base` files live in `Extras/Bases/`.
