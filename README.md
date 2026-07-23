@@ -88,5 +88,11 @@ In its settings:
 	- Literature note content template file: `Shared/tfm_prior_subvault/Extras/Templates/citation-content-template.md`
 
 
+#### Excalidraw
+[URL](obsidian://show-plugin?id=obsidian-excalidraw-plugin)
+
+Needed to view and edit the drawing notes (such as `Cards/Research sketch.excalidraw.md`). No specific settings are required; the defaults work.
+
+
 #### Bases
 [Bases](https://help.obsidian.md/bases) are Obsidian's native way to render notes as a database-like table. The `.base` files live in `Extras/Bases/`.
