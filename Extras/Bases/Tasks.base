@@ -1,7 +1,63 @@
 filters:
   and:
     - file.inFolder("Shared/tfm_prior_subvault/Tasks")
+properties:
+  note.tags:
+    displayName: Tags
+  note.creation date:
+    displayName: Created
 views:
+  - type: kanban-view
+    name: Kanban
+    groupBy:
+      property: creation date
+      direction: ASC
+    order:
+      - tags
+      - creation date
+    columnOrders:
+      file.file:
+        - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
+        - Shared/tfm_prior_subvault/Tasks/Checkout a PR.md
+        - Shared/tfm_prior_subvault/Tasks/ICML conference paper.md
+        - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
+        - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
+        - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
+      note.status:
+        - backlog
+        - open
+        - progress
+        - Done
+    cardOrders:
+      file.file: {}
+      note.status:
+        Uncategorized: []
+        Progress:
+          - Shared/tfm_prior_subvault/Tasks/Checkout a PR.md
+          - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
+        done:
+          - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
+        open:
+          - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
+          - Shared/tfm_prior_subvault/Tasks/ICML conference paper.md
+          - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
+          - Shared/tfm_prior_subvault/Tasks/Checkout a PR.md
+          - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
+          - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
+      "note.status\x1fnote.tags": {}
+    columnColors:
+      file.file: {}
+      note.status: {}
+    groupByProperty: note.status
+    quickAddFolder: Shared/tfm_prior_subvault/Tasks
+    swimlaneOrders:
+      "note.status\x1fnote.tags":
+        - "#another-test-tag"
+        - "#test-tag"
+        - Uncategorized
+    collapsedLanes:
+      "note.status\x1fnote.tags": []
+    wrapPropertyValues: true
   - type: table
     name: Table
     order:

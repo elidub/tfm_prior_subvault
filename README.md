@@ -96,3 +96,8 @@ Needed to view and edit the drawing notes (such as `Cards/Research sketch.excali
 
 #### Bases
 [Bases](https://help.obsidian.md/bases) are Obsidian's native way to render notes as a database-like table. The `.base` files live in `Extras/Bases/`.
+
+#### Kanban Bases View
+[URL](obsidian://show-plugin?id=kanban-bases-view)
+
+Needed to view the Kanban board of tasks. No specific settings are required; the defaults work.
