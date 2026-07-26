@@ -79,9 +79,21 @@ In its settings:
 
 In its settings:
 - Citation databases →
-	- Database 1: `TFM Pior`
-	- Database source: `Zotero (local API)`
-	- Group library ID: `6602565`
+	- Approach 1 (requires Zotero to be opened):
+		- Database 1: `TFM Pior`
+		- Database source: `Zotero (local API)`
+		- Group library ID: `6602565`
+	- Approach 2:
+		- Not in Obsidian settings, but in Zotero:
+			- Download the [Better BibTeX for Zotero Plugin](https://retorque.re/zotero-better-bibtex/)
+			- Export the group library
+				- Format: `Better BibLaTeX`
+				- Keep updated: Check
+				- Chose a location to store the `.bib` file
+		- Now in the Obsidian plugin settings Citation databases →
+			- Database 1: `TFM Pior`
+			- Database source: `Better BibTeX (file)`
+			- Database path: chose the same location as above
 - Literature notes →
 	- Literature notes folder: `Shared/tfm_prior_subvault/Sources`
 - Literature note templates
