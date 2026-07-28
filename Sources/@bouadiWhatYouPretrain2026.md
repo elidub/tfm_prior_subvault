@@ -31,3 +31,12 @@ a "compositional realism prior" basically a more complicated prior generator tha
 
 #### questions
 - if the o'prior generator is able to train a model that produces more separable classes through each layers, this might suggest that the model is learning the true casual relationships between features and target. Might it be that therefore it might create casual graphs that more closely resemble the true causal graph compared to current SOTA frameworks generators?
+
+### ablation legend
+| Abbreviation | Meaning                                |
+| ------------ | -------------------------------------- |
+| SM           | Basic SCM families                     |
+| SH           | Hybrid SCM                             |
+| MR           | Moderate realism                       |
+| SR           | Strong realism                         |
+| SD           | Distribution shift and shortcut stress |

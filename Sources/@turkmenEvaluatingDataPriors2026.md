@@ -42,11 +42,3 @@ Suggests that generation parameters shift task distribution and affect downstrea
 
 
 
-### Ablation legend
-| Abbreviation | Meaning                                |
-| ------------ | -------------------------------------- |
-| SM           | Basic SCM families                     |
-| SH           | Hybrid SCM                             |
-| MR           | Moderate realism                       |
-| SR           | Strong realism                         |
-| SD           | Distribution shift and shortcut stress |
