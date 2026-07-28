@@ -63,3 +63,40 @@ Table 1
 | TabICLv2       | [[@quTabICLv2BetterFaster2026]]           | ✅              | Cauchy       | N/A for Cauchy                | $\text{log-}\mathcal{U}(2, 32)$ | $\mathcal{U}(2, 100)$                     | 60K                 | 35M                 | 27.6M             |
 | TabPFN-2       | [[@hollmannAccuratePredictionsSmall2025]] | ❌              | GNR          | $\text{Gamma}(\alpha, \beta)$ | $\text{log-}\mathcal{U}(a, b)$  | $\text{Beta}(0.95, 8)$, scaled to $1-160$ | 10K                 | ~100M               | 7.2M              |
 
+## Method
+
+We evaluate all known DAG generation approaches in the literature (Table 1). Each DAG type is controlled by two hyperparameters,
+$$\begin{align}
+\text{DAG sampler} &= \{ \text{Erdös-Rényi} | \text{Cauchy} | \text{GNR} \}
+\\
+\mathcal{G} &\sim \text{DAG sampler} (n_\text{nodes}, p_\text{edge}) \end{align}$$
+with the number of nodes $n_\text{nodes}$ and an edge parameter $p_\text{edge}$. The edge parameter controls how edges are distributed in the DAG and has a different meaning per DAG type.
+
+- **Erdos-Renyi** [[@erdds1959random]] has edge probability for $p_\text{edge}$ which controls the sparsity of the DAG.  CFM [[@reuterUseWhatYou2026]] uses this with $p_\text{edge} \sim \text{Beta}(2, 3)$. In our experiments, we vary this for three different sparsities $p_\text{edge} \sim \text{Beta}(\alpha, \beta)$ with $(\alpha, \beta) = (2, 6), (6, 6), (6, 2)$.
+- **Cauchy** DAGs include an edge for node indices $i < j$ with probability $$p_{ij}=\mathrm{sigmoid}(p_\text{edge} + A+B_i+C_j)$$where $A$, $B_i$, $C_j$ are independent standard Cauchy random variables. The edge parameter $p_\text{edge}$ controls for a bias in the sparsity.  TabICLv2 [[@quTabICLv2BetterFaster2026]] has $p_\text{edge} = 0$. In our experiments, we vary this with $p_\text{edge} = -3, 0, 3$
+- **Growing network with redirection sampling (GNR)** [[@krapivskyOrganizationGrowingRandom2001]] has an redirection probability as $p_\text{edge}$. TabPFN-2 [[@hollmannAccuratePredictionsSmall2025]] specifies that is uses Gamma distribution for the redirection probability which specifies the how concentrated edges are around hubs. Because redirection probability cannot directly define a probability in $[0,1]$ (further discussion in Appendix X), we use the same Beta distributions as for Erdos-Renyi.  In GNRs, sparsity is directly dependent on $n_\text{nodes}$ so can not be controlled for. GNRs can be defined as converging (the default in the literature), diverging or random graphs. TabPFN-2 does not specify which variant it uses, we experiment with all three.
+
+The above results in 15 graph settings: 5 DAG types (Erdos-Renyi, Cauchy, three variants of GNR) all with 3 edge parameter $p_\text{edge}$ settings (controlling for sparsity or hubness). To achieve state-of-the-art performance this would require training models with expensive dataset and training parameters (Table 1). 
+Furthermore, this would not give us insight why certain graph settings perform good or bad. 
+Instead, we keep values for the dataset and training parameters small, and very some of them and hypothesize with scaling laws that the interpretations will hold at industry-scale TFMs. 
+
+- **Number of nodes** $n_\text{nodes}$. We put the distribution of TabICLv2 in quantiles: $n_\text{nodes} \sim \text{log-}\mathcal{U}(a, b)$ with $(a, b) = (2, 3), (4, 7), (8, 15), (16, 32)$. This allows to understand what graph settings are useful for larger/smaller graphs.
+- **Number of features** $n_\text{features}$. Following TabICLv2 with $n_\text{features} \sim \mathcal{U}(2, n_\text{feature max})$ but instead of having the maximum number of features $n_\text{feature max} = 100$, we vary $n_\text{feature max} = 3, 5, 10$.
+- **Number of rows** $n_\text{rows}$ is fixed to $256$. We do not vary this as it would be a big driver of the increase for computational budget, and because we believe that graph setting and $n_\text{rows}$ 
+- **Number of datasets** $n_\text{datasets}$ is fixed to 10K.
+- **Number of parameters** $n_\text{params}$ we use the default setting of NanoTabPFN [[@pfefferleNanoTabPFNLightweightEducational2025]] with 3.7M parameters.  We add one smaller and larger model, respectively 1.2M and 10.4M
+
+Resulting graphs examples and summary statistics (density, in-degree Gini and out-degree Gini) from the 5 DAG types, 3 edge parameters, 4 number of node buckets with number of nodes $n_\text{features} = 3$ are shown in the figures below.
+
+#### Graphs examples
+![[cauchy.png]]
+![[erdos_renyi.png]]
+![[gnr_converging.png]]
+![[gnr_diverging.png]]
+![[gnr_random.png]]
+
+#### Graph summary statistics
+![[summary_density.png]]
+![[summary_in_degree_gini.png]]
+![[summary_out_degree_gini.png]]
+
