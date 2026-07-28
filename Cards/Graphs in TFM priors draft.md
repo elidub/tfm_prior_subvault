@@ -34,13 +34,15 @@ Closed-source priors do not share the code for the prior, but sometimes do descr
 - TabPFN-2.5 [[@grinsztajnTabPFN25AdvancingState2026]] and TabFM [[@googleIntroducingTabFMZeroshot2026]] specify little details on their DAG sampling approach.
 So while we do not have technical details from closed-source priors, most priors hint to a graph-generated DAG sampling approach.
 
-We do not consider real-world (i.e., non-synthetic) priors such as Real-TabPFN [[@gargRealTabPFNImprovingTabular2025]] and TabDPT [[@maTabDPTScalingTabular2025]].
+As we focus on the synthetic data generator of single tables, we exclude related subfields.
+- Real-world data priors (Real-TabPFN [[@gargRealTabPFNImprovingTabular2025]]; TabDPT [[@maTabDPTScalingTabular2025]]) do not model a DAG.
+- PFNs on the instance-graph domain (GraphPFN [[@eremeevGraphPFNPriorDataFitted2026]]; NodePFN [[@choiLearningPosteriorPredictive2026]]) where a subset of the nodes in the graph represent instances (rows) instead of features in the graph.
 
 
 
 
 | Model     | Reference                                 | Open-source | DAG type    | $p_\text{edge}$               | $n_\text{nodes}$                | $n_\text{features}$                       |
 | --------- | ----------------------------------------- | ----------- | ----------- | ----------------------------- | ------------------------------- | ----------------------------------------- |
-| GCFM      | [[@reuterUseWhatYou2026]]                 | ✅          | Erdös-Rényi | $\text{Beta}(2, 3)$           | $\mathcal{U}(2, 52)$            | equal to nodes                            |
-| TabICL-v2 | [[@quTabICLv2BetterFaster2026]]           | ✅          | Cauchy      | N/A for Cauchy                | $\text{log-}\mathcal{U}(2, 32)$ | $\mathcal{U}(2, 100)$                     |
-| TabPFN-v2 | [[@hollmannAccuratePredictionsSmall2025]] | ❌          | GNR         | $\text{Gamma}(\alpha, \beta)$ | $\text{log-}\mathcal{U}(a, b)$  | $\text{Beta}(0.95, 8)$, scaled to $1-160$ |
+| CFM       | [[@reuterUseWhatYou2026]]                 | ✅           | Erdös-Rényi | $\text{Beta}(2, 3)$           | $\mathcal{U}(2, 52)$            | $n_\text{nodes} - 1$                      |
+| TabICL-v2 | [[@quTabICLv2BetterFaster2026]]           | ✅           | Cauchy      | N/A for Cauchy                | $\text{log-}\mathcal{U}(2, 32)$ | $\mathcal{U}(2, 100)$                     |
+| TabPFN-v2 | [[@hollmannAccuratePredictionsSmall2025]] | ❌           | GNR         | $\text{Gamma}(\alpha, \beta)$ | $\text{log-}\mathcal{U}(a, b)$  | $\text{Beta}(0.95, 8)$, scaled to $1-160$ |
