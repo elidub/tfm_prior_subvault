@@ -9,3 +9,13 @@ Has the very setup we would like to do.
 ### Important quotes
 
 > Future work could examine whether prior-specific hyperparameter tuning changes the relative performance of different priors.’ 
+
+
+### Ablation legend
+| Abbreviation | Meaning                                |
+| ------------ | -------------------------------------- |
+| SM           | Basic SCM families                     |
+| SH           | Hybrid SCM                             |
+| MR           | Moderate realism                       |
+| SR           | Strong realism                         |
+| SD           | Distribution shift and shortcut stress |
