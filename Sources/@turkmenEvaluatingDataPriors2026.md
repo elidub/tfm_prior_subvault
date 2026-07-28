@@ -41,3 +41,12 @@ Suggests that generation parameters shift task distribution and affect downstrea
 - if certain prior design choices are more suited for specific datasets, could be interesting to check performance of prior choices across domains rather than individual datasets. it might be that certain priors dominate certain domains over others. eg. maybe ticl consistently performs better on medical datasets than other priors. if this is so, why? what about its underlying distribution mimics medical datasets? maybe tabforest_forest performs better on fraud related tasks since maybe the underlying generator outputs heavily imbalanced datasets. feel like this is probably already done tho. after all we have time series specific tfms as well.
 
 
+
+### Ablation legend
+| Abbreviation | Meaning                                |
+| ------------ | -------------------------------------- |
+| SM           | Basic SCM families                     |
+| SH           | Hybrid SCM                             |
+| MR           | Moderate realism                       |
+| SR           | Strong realism                         |
+| SD           | Distribution shift and shortcut stress |
