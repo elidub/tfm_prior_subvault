@@ -1,0 +1,12 @@
+
+- Main repository is `TFM`, with most of our own code in `gtfm`
+- It has a few 'repo dependencies' in the form of git submodules
+	- `Graphs4CausalFoundationModels`, legacy. prior that we don't use anymore, should be removed 
+	- `TFM-Playground`, for training and evaluating small TFMs
+	- `modded-nanotabpfn`, legacy. probably won't use this
+	- `tabarena`, for benchmarking and evaluating baselines 
+	- `tabicl`, used for it's prior data generation code
+- Each submodule is branch from a fork of the original (i.e. upstream) repo. 
+	- We have this setup such that we can easily compare our changes to the upstream code and its updates.
+	- The idea is to change the branches as little as possible and keep them similar to the upstream code (which is the same as the main branch of the fork). Such that if we would even make a pull request to the upstream branches, there are little changes for them to make.
+	- This while git submodule setup is a pain to work with, but probably the easiest to way to keep up to date with upstream changes.
