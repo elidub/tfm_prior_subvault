@@ -66,10 +66,10 @@ Table 1
 ## Method
 
 We evaluate all known DAG generation approaches in the literature (Table 1). Each DAG type is controlled by two hyperparameters,
-$$\begin{align}
+$$\begin{aligned}
 \text{DAG sampler} &= \{ \text{Erdös-Rényi} | \text{Cauchy} | \text{GNR} \}
 \\
-\mathcal{G} &\sim \text{DAG sampler} (n_\text{nodes}, p_\text{edge}) \end{align}$$
+\mathcal{G} &\sim \text{DAG sampler} (n_\text{nodes}, p_\text{edge}) \end{aligned}$$
 with the number of nodes $n_\text{nodes}$ and an edge parameter $p_\text{edge}$. The edge parameter controls how edges are distributed in the DAG and has a different meaning per DAG type.
 
 - **Erdos-Renyi** [[@erdds1959random]] has edge probability for $p_\text{edge}$ which controls the sparsity of the DAG.  CFM [[@reuterUseWhatYou2026]] uses this with $p_\text{edge} \sim \text{Beta}(2, 3)$. In our experiments, we vary this for three different sparsities $p_\text{edge} \sim \text{Beta}(\alpha, \beta)$ with $(\alpha, \beta) = (2, 6), (6, 6), (6, 2)$.
@@ -88,7 +88,14 @@ Instead, we keep values for the dataset and training parameters small, and very 
 
 Resulting graphs examples and summary statistics (density, in-degree Gini and out-degree Gini) from the 5 DAG types, 3 edge parameters, 4 number of node buckets with number of nodes $n_\text{features} = 3$ are shown in the figures below.
 
+We will use the TabICLv2 prior for synthetic data generation. It's the most recent and open-source SOTA model. 
 #### Graphs examples
+- Arrowheads are not drawn, all edges are directed and point from left to right.
+- blue nodes: features
+- orange nodes: target
+- black lines: functional relationships
+- green lines: 'observations'. With 'observations' we refer to the arrows pointing from right to left in Figure 4c of [[@quTabICLv2BetterFaster2026]]. Consider this quote from the paper: "Only a subset of a node’s dimensions is used to generate each feature, leaving other dimensions unobserved and thereby introducing noise into the dataset." The 'subset of a node dimensions' is what we refer to as an observation.
+
 ![[cauchy.png]]
 ![[erdos_renyi.png]]
 ![[gnr_converging.png]]
@@ -100,3 +107,5 @@ Resulting graphs examples and summary statistics (density, in-degree Gini and ou
 ![[summary_in_degree_gini.png]]
 ![[summary_out_degree_gini.png]]
 
+# Notes
+- [[AI feedback]]
