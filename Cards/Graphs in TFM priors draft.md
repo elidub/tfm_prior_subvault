@@ -78,7 +78,7 @@ with the number of nodes $n_\text{nodes}$ and an edge parameter $p_\text{edge}$.
 
 The above results in 15 graph settings: 5 DAG types (Erdos-Renyi, Cauchy, three variants of GNR) all with 3 edge parameter $p_\text{edge}$ settings (controlling for sparsity or hubness). To achieve state-of-the-art performance this would require training models with expensive dataset and training parameters (Table 1). 
 Furthermore, this would not give us insight why certain graph settings perform good or bad. 
-Instead, we keep values for the dataset and training parameters small, and very some of them and hypothesize with scaling laws that the interpretations will hold at industry-scale TFMs. 
+Instead, we keep values for the dataset and training parameters small, and vary some of them and hypothesize with scaling laws that the interpretations will hold at industry-scale TFMs. 
 
 - **Number of nodes** $n_\text{nodes}$. We put the distribution of TabICLv2 in quantiles: $n_\text{nodes} \sim \text{log-}\mathcal{U}(a, b)$ with $(a, b) = (2, 3), (4, 7), (8, 15), (16, 32)$. This allows to understand what graph settings are useful for larger/smaller graphs.
 - **Number of features** $n_\text{features}$. Following TabICLv2 with $n_\text{features} \sim \mathcal{U}(2, n_\text{feature max})$ but instead of having the maximum number of features $n_\text{feature max} = 100$, we vary $n_\text{feature max} = 3, 5, 10$.
@@ -86,7 +86,7 @@ Instead, we keep values for the dataset and training parameters small, and very 
 - **Number of datasets** $n_\text{datasets}$ is fixed to 10K.
 - **Number of parameters** $n_\text{params}$ we use the default setting of NanoTabPFN [[@pfefferleNanoTabPFNLightweightEducational2025]] with 3.7M parameters.  We add one smaller and larger model, respectively 1.2M and 10.4M
 
-Resulting graphs examples and summary statistics (density, in-degree Gini and out-degree Gini) from the 5 DAG types, 3 edge parameters, 4 number of node buckets with number of nodes $n_\text{features} = 3$ are shown in the figures below.
+Resulting graphs examples and summary statistics (density, irn-degree Gini and out-degree Gini) from the 5 DAG types, 3 edge parameters, 4 number of node buckets with number of nodes $n_\text{features} = 3$ are shown in the figures below.
 
 We will use the TabICLv2 prior for synthetic data generation. It's the most recent and open-source SOTA model. 
 #### Graphs examples
@@ -96,16 +96,16 @@ We will use the TabICLv2 prior for synthetic data generation. It's the most rece
 - black lines: functional relationships
 - green lines: 'observations'. With 'observations' we refer to the arrows pointing from right to left in Figure 4c of [[@quTabICLv2BetterFaster2026]]. Consider this quote from the paper: "Only a subset of a node’s dimensions is used to generate each feature, leaving other dimensions unobserved and thereby introducing noise into the dataset." The 'subset of a node dimensions' is what we refer to as an observation.
 
-![[cauchy.png]]
-![[erdos_renyi.png]]
-![[gnr_converging.png]]
-![[gnr_diverging.png]]
-![[gnr_random.png]]
+![[IMG-20260729145823.png]]
+![[IMG-20260729145823-1.png]]
+![[IMG-20260729145823-2.png]]
+![[IMG-20260729145823-3.png]]
+![[IMG-20260729145823-4.png]]
 
 #### Graph summary statistics
-![[summary_density.png]]
-![[summary_in_degree_gini.png]]
-![[summary_out_degree_gini.png]]
+![[IMG-20260729145823-5.png]]
+![[IMG-20260729145823-6.png]]
+![[IMG-20260729145823-7.png]]
 
 # Notes
 - [[AI feedback]]
