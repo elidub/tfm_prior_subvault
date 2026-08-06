@@ -1,6 +1,6 @@
 filters:
   and:
-    - file.inFolder("Shared/tfm_prior_subvault/Tasks")
+    - file.path.startsWith("Shared/tfm_prior_subvault/Tasks/")
 properties:
   note.tags:
     displayName: Tags
@@ -28,7 +28,6 @@ views:
         - open
         - progress
         - Done
-        - Uncategorized
     cardOrders:
       file.file: {}
       note.status:
@@ -42,6 +41,7 @@ views:
           - Shared/tfm_prior_subvault/Tasks/ICML conference paper.md
           - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
           - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
+          - Shared/tfm_prior_subvault/Tasks/Literature on DAG findings.md
         progress:
           - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
         Done:
@@ -74,3 +74,4 @@ views:
         direction: ASC
     columnSize:
       file.name: 376
+newItemFolder: Shared/tfm_prior_subvault/Tasks
