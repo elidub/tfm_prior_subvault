@@ -1,7 +1,7 @@
 ## Claude Opus 
 I'll read the draft.
 
-Read the draft and the surrounding notes ([First literature review](https://claude.ai/epitaxy/Shared/tfm_prior_subvault/Cards/First%20literature%20review.md), the [team meeting](https://claude.ai/epitaxy/Shared/tfm_prior_subvault/Calender/Meetings/26-07-22%20-%20TFM%20prior%20team.md)). The framing (prior design as the primary object, architecture-induced vs graph-generated) is good and the Table-1 survey is a real contribution. The method section is where I'd push back hardest — it's currently a factorial sweep without a stated estimated, and several factors are confounded by construction.
+Read the draft and the surrounding notes ([First literature review](https://claude.ai/epitaxy/Shared/tfm_prior_subvault/Cards/First%20literature%20review.md), the [team meeting](https://claude.ai/epitaxy/Shared/tfm_prior_subvault/Calender/Meetings/26-07-22%20-%20TFM%20prior%20team.md)). The framing (prior design as the primary object, architecture-induced vs graph-generated) is good and the Table-1 survey is a real contribution. The method section is where I'd push back hardest — it's currently a factorial sweep without a stated estimand, and several factors are confounded by construction.
 
 ### The three things I'd fix before running anything
 

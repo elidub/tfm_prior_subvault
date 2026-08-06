@@ -28,6 +28,7 @@ views:
         - open
         - progress
         - Done
+        - Uncategorized
     cardOrders:
       file.file: {}
       note.status:
@@ -40,6 +41,7 @@ views:
         open:
           - Shared/tfm_prior_subvault/Tasks/ICML conference paper.md
           - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
+          - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
         progress:
           - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
         Done:
@@ -47,7 +49,6 @@ views:
           - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
           - Shared/tfm_prior_subvault/Tasks/TabICLv2 prior.md
           - Shared/tfm_prior_subvault/Tasks/Explore TFM codebase.md
-          - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
       "note.status\x1fnote.tags": {}
     columnColors:
       file.file: {}
