@@ -6,4 +6,5 @@ meeting date: 2026-08-11
 	- Refer to Fedor's thesis
 - Discuss evaluation number of features plan
 - Discuss P4 vs P3 in [[Research sketch.excalidraw]]
+	- is the objective of P4 to produce a characterization of current DAG design choices? or do we also want to propose new DAG generation schemes that are optimized for something?
 
