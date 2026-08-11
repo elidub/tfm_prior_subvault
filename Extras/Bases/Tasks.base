@@ -49,6 +49,8 @@ views:
           - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
           - Shared/tfm_prior_subvault/Tasks/TabICLv2 prior.md
           - Shared/tfm_prior_subvault/Tasks/Explore TFM codebase.md
+        backlog:
+          - Shared/tfm_prior_subvault/Tasks/Evaluation of number of features.md
       "note.status\x1fnote.tags": {}
     columnColors:
       file.file: {}
