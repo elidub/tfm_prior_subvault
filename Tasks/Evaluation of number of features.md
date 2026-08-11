@@ -20,6 +20,13 @@ When we have trained with prior up to e.g. 5 feature. We don't evaluate on all '
 	- What do we do with datasets with less than 5 features?
 - Maybe we could also evaluate with more features
 	- Because evaluating more datasets is not too expensive
-	- E.g.: train with prior up to 5, evaluate on 3, 5 and 10 features
+	- E.g.: train with prior up to 5, evaluate on 5 and 10, 15 features
 
 The above ideas/questions could also be applied to row (subsampling) although that shouldn't be the focus on of the project.
+
+- Checkout the code how they do it
+	- [[@turkmenEvaluatingDataPriors2026]]
+	- [[@pfefferleNanoTabPFNLightweightEducational2025]] (NanoTabPFN)
+	- [[@ozturkSpeedrunningTabularFoundation2026]] (modded-nanoTabPFN)
+
+- a Okay bu why does TabICLv2 sample features uniformly and not log-unfirmlu
