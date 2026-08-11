@@ -15,6 +15,7 @@ views:
     order:
       - tags
       - creation date
+      - assigned
     columnOrders:
       file.file:
         - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
