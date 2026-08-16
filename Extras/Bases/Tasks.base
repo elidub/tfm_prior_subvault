@@ -41,11 +41,11 @@ views:
         open:
           - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
         progress:
-          - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
           - Shared/tfm_prior_subvault/Tasks/Literature on DAG findings.md
         Done:
           - Shared/tfm_prior_subvault/Tasks/Checkout a PR.md
           - Shared/tfm_prior_subvault/Tasks/Play around with TFM-Playground.md
+          - Shared/tfm_prior_subvault/Tasks/ICML workshop papers.md
           - Shared/tfm_prior_subvault/Tasks/Play around with TabPFN and TabICL.md
           - Shared/tfm_prior_subvault/Tasks/ICML conference paper.md
           - Shared/tfm_prior_subvault/Tasks/TabICLv2 prior.md
