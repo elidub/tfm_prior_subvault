@@ -2,6 +2,8 @@
 tags:
 creation date: 26-08-10
 status: backlog
+category:
+  - before training
 ---
 
 - A structured way to 
