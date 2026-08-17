@@ -1,5 +1,6 @@
-
-## Literature
+## Notes
+- [[AI feedback]]
+- [[Hyperparameter importance|hyperparameter importance]]
 ## Definitions and abbreviations
 
 
@@ -106,12 +107,3 @@ We will use the TabICLv2 prior for synthetic data generation. It's the most rece
 ![[IMG-20260729145823-5.png]]
 ![[IMG-20260729145823-6.png]]
 ![[IMG-20260729145823-7.png]]
-
-
-
-# Small bonus study
-[[Shared/tfm_prior_subvault/Cards/hyperparameter importance |hyperparameter importance]]
-
-
-# Notes
-- [[AI feedback]]

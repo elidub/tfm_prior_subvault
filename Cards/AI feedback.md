@@ -1,3 +1,8 @@
+
+
+> [!warning] Outdated line numbers
+> Line number references used in text below are outdated due to small updates to [[Graphs in TFM priors draft]]
+
 ## Claude Opus 
 I'll read the draft.
 
