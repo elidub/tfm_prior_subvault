@@ -26,6 +26,7 @@ When we have trained with prior up to e.g. 5 feature. We don't evaluate on all '
 	- E.g.: train with prior up to 5, evaluate on 5 and 10, 15 features
 
 - The above ideas/questions could also be applied to row (subsampling) although that shouldn't be the focus on of the project.
+	- [ ] When subsampling TabArena rows to something like 100, there is (or was) a 'bug' that stratification wouldn't exactly work and some datasets y_test would just be a single class.
 	- Not sure if the current code now follows the tabarena repeats and therefore restirct some repeats up till 3. That's probably not needed as we subsample rows
 
 - Checkout the code how they do it
