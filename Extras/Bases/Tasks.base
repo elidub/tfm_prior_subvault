@@ -9,14 +9,14 @@ properties:
 views:
   - type: kanban-view
     name: Kanban
-    groupBy:
-      property: creation date
-      direction: ASC
     order:
       - tags
       - creation date
       - assigned
       - category
+    sort:
+      - property: creation date
+        direction: ASC
     columnOrders:
       file.file:
         - Shared/tfm_prior_subvault/Tasks/Checkout Astral's UV.md
