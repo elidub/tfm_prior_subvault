@@ -4,8 +4,7 @@ creation date: 26-08-17
 assigned:
 category:
   - before training
-status:
-  - backlog
+status: Done
 ---
 - Preprocessing TabArena datasets is currently done during downloading them in `download.py`.
 	- [encode_features](https://github.com/elidub/TFM/blob/fd143d2ae81e9cd8b8ea7e99798b6dbffc409c4d/gtfm/gtfm/tabarena_eval/data.py#L268)
