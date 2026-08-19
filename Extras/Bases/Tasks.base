@@ -54,6 +54,7 @@ views:
         backlog:
           - Shared/tfm_prior_subvault/Tasks/Evaluation of number of features.md
           - Shared/tfm_prior_subvault/Tasks/Full evaluation pipeline.md
+          - Shared/tfm_prior_subvault/Tasks/Broken edge-probability configs (erdos_renyi, gnr).md
       "note.status\x1fnote.tags": {}
     columnColors:
       file.file: {}
