@@ -23,6 +23,30 @@ Can also then plot the performance metric vs lever so as to figure out the "opti
 information on which hyperparameters contribute best to performance might be important for prior designers. Theres quite a few tunable levers so knowing which one to spend the most time on would be informative. for example, if turns out the DAG type barely matters than we know that you can just pick any DAG algorithm without much loss.
 
 
+### code implementation issue
+edge sampling paramters differ between graph families, gnr and erdos renyi sample p_edge from a Beta(alpha, beta) distribution while cauchy comes from a singular offset value. this is going to be hard to translate into a dataframe where you now cannot assert edge sampling into one column. I raised this issue with claude:
+#### claudes answer to this issue
+You're right that they're not comparable — a Cauchy `offset` of `-3.0` and a Beta `alpha` of `6.0` aren't the same kind of quantity at all; they're not even on the same scale, and `alpha`/`beta` don't even set edge probability directly, they define a _distribution_ edge probability gets sampled from. If you forced them into shared columns (say, `edge_param_1`/`edge_param_2`, leaving the unused one `0` or `NaN` for whichever graph type doesn't use it), fANOVA would silently treat "beta = 0" as a real value shared by every `cauchy` run — which perfectly correlates with `graph_type == cauchy` in your data, and corrupts the importance estimate for both features at once.
+
+**The textbook-correct way, if you want per-graph-type resolution**
+
+`fanova`'s underlying `ConfigSpace` library has a built-in mechanism for exactly this: **conditional hyperparameters**. You'd declare `offset` as only active when `graph_type == cauchy`, and `alpha`/`beta` as only active when `graph_type` is one of the Beta-parameterized types. fANOVA computes importance correctly over a space like this — it's a standard, intended use case, not a hack. But it only answers narrower questions: "how important is `graph_type` itself," "how important is `offset` _within_ cauchy runs," "how important is `alpha`/`beta` _within_ erdos_renyi/gnr runs" — separately. It still can't give you one unified "importance of edge probability" number, because there isn't one shared hyperparameter to attribute that to.
+
+**What I'd actually recommend instead: use measured graph density, not the parameterization**
+
+I checked, and the codebase already computes exactly the quantity you want — `gtfm/graph/dag_summary.py`:
+
+```python
+"density": m / max_edges  # edges / max possible edges — a real DAG, not a config value
+```
+
+This is a single, continuous, directly comparable number _regardless_ of whether the graph came from a Cauchy offset or a sampled Beta(alpha, beta) — a Cauchy-generated graph and an Erdos-Renyi-generated graph that both happen to end up with density 0.3 really are comparably "0.3 dense," in a way that "offset=-3" and "alpha=6,beta=2" never are. It's also just a more scientifically meaningful claim for a paper: "does graph density affect downstream model performance" is a real, interpretable, publishable finding; "does the Beta distribution's alpha parameter matter, only for the subset of runs using erdos_renyi/gnr" is a narrower and much less interesting one.
+
+One thing to verify before you rely on it: I traced this into `gtfm/prior/dump.py` and it _is_ written per-table into every `prior.h5` dump as its own `density` array (`dump_density[...] = density`) — but I didn't confirm it's populated in every configuration (it may depend on `moralize_and_marginalize=True`, which defaults to `False`). Worth checking your actual dumps' `density` array isn't empty before building on it.
+
+**My actual recommendation:** run fANOVA on **graph density** (computed/aggregated from each run's `prior.h5`) alongside your other real hyperparameters (node count, `max_features`, model size) as your primary study — that's the version that's both methodologically clean and the more interesting finding. Treat the conditional-ConfigSpace version (importance of `alpha`/`beta` within graph types) as a secondary, follow-up analysis if you want to dig into _why_ density-parameterization choices matter, not your headline result.
+
+
 ## AI Feedback
 
 The important caveat — this doesn't replace fixing the confounds, it sits on top of them
