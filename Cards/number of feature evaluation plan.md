@@ -21,6 +21,12 @@ tabarenas aggregation happens over folds/repeats. in our current code implementa
 train with prior upto 5 features evaluate on 5,10,15. 
 - problem: pool of datasets gets narrower in each case. if performance degrades/improves, do we attribute this performance to our prior choice? or simply because we are evaluating on a smaller pool
 
- subsample all datasets upto 50 features (keep datasets with less than 50 features) and then evaluate across all. if performance improves across each combination of our feature choice then we know it has an impact. the pool size should remain fixed so as to isolate its impact.
+proposed approach :
+assume we have 3 models trained features denoted by subscript.
+M_5, M_10, M_15.
+evaluate these three models on datasets that have been subsampled to 5 features. this way the underlying evaluation is held constant and the only thing that we are varying is the number of features trained on. answers the question: does training the model on more features actually help? 
+we could even add noise features to see whether the model is able to differentiate between informative and uninformative features.
+
+a bonus step we could then take M_10 and M_15 and evalaute on datasets subsamples to 10 features. that way we can evaluate complexity
 
 
