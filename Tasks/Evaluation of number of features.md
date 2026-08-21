@@ -33,7 +33,7 @@ When we have trained with prior up to e.g. 5 feature. We don't evaluate on all '
 	- [[@turkmenEvaluatingDataPriors2026]]
 	- [[@pfefferleNanoTabPFNLightweightEducational2025]] (NanoTabPFN)
 	- [[@ozturkSpeedrunningTabularFoundation2026]] (modded-nanoTabPFN)
-- [ ] Probably best to write an '[[number of feature evaluation plan]]' where we answer the above questions and relate it back to what the literature does.
+- [ ] Probably best to write an '[[evaluation]]' where we answer the above questions and relate it back to what the literature does.
 - When doing all of this, one has to take/think about stratificaiton
 
 - a Okay but why does TabICLv2 sample features uniformly and not log-uniformly?
