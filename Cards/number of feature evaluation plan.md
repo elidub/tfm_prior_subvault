@@ -16,12 +16,11 @@ I disagree with using different subsample seeds to subsample different features 
 
 #### Use of tabarena metrics under current implementation
 tabarenas aggregation happens over folds/repeats. in our current code implementation this is preserved since we resample after each fold/repeat. BUT keep in mind metrics like Elo are comparative to other models out there which would have been evaluated on the unmodified dataset. So we cannot use this metric fairly.
-
 #### evaluation
-train with prior upto 5 features evaluate on 5,10,15. 
+current approach: train with prior upto 5 features evaluate on 5,10,15. 
 - problem: pool of datasets gets narrower in each case. if performance degrades/improves, do we attribute this performance to our prior choice? or simply because we are evaluating on a smaller pool
 
-### proposed approach for evaluation :
+## Proposed approach for evaluation :
 assume we have 3 models trained features denoted by subscript.
 M_5, M_10, M_15.
 evaluate these three models on datasets that have been subsampled to 5 features. this way the underlying evaluation is held constant and the only thing that we are varying is the number of features trained on. answers the question: does training the model on more features actually help? 
@@ -29,6 +28,27 @@ we could even add noise features to see whether the model is able to differentia
 
 a bonus step we could then take M_10 and M_15 and evaluate on datasets subsamples to 10 features. that way we can evaluate complexity
 
-additionally, subsampling features introduces a source of randomness. to guard against this randomness in the data, we can repeat our evaluation step and then average across each run. This is similar to what TabArena does with its repeats. But keep in mind that tabarena employs repeats to guard against randomness introduced through different folds, not because of feature subsampling. so this is something we will have to directly implement.
+#### addressing variance concern
+Additionally, subsampling features introduces a source of randomness. to guard against this randomness in the data, we can repeat our evaluation step and then average across each run. 
+psuedo code:
+
+roc = []
+for dataset in datasets:
+	 dataset_roc = []
+	for repeat in range(n):
+		subsample 5 features
+		 evaluate
+		 dataset_roc.append(evaluate)
+	 roc.append(sum(dataset_roc)/len(dataset_roc))
+
+final_metric = sum(roc)/len(roc)
+
+but keep in mind that the feature subset should remain the same across model evaluations otherwise we risk getting different random columns each draw!!
+
+compute issue: this might be slow since we have two nested loops. solutions to speed things along:
+- determine $n$ as a variable of the dataset we are evaluating. signficance of variance decreases with dataset size per law of large numbers. so you dont have to repeat a dataset which had 8 native features the same number of times you do a dataset with 50 features. 
+- parralelize the evaluation step. doesent need to be sequential. 
+
+This is similar to what TabArena does with its repeats. But keep in mind that tabarena employs repeats to guard against randomness introduced through cross validation, not because of feature subsampling. so this is something we will have to directly implement.
 
 
