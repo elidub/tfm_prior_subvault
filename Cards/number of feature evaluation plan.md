@@ -21,12 +21,14 @@ tabarenas aggregation happens over folds/repeats. in our current code implementa
 train with prior upto 5 features evaluate on 5,10,15. 
 - problem: pool of datasets gets narrower in each case. if performance degrades/improves, do we attribute this performance to our prior choice? or simply because we are evaluating on a smaller pool
 
-proposed approach :
+### proposed approach for evaluation :
 assume we have 3 models trained features denoted by subscript.
 M_5, M_10, M_15.
 evaluate these three models on datasets that have been subsampled to 5 features. this way the underlying evaluation is held constant and the only thing that we are varying is the number of features trained on. answers the question: does training the model on more features actually help? 
 we could even add noise features to see whether the model is able to differentiate between informative and uninformative features.
 
-a bonus step we could then take M_10 and M_15 and evalaute on datasets subsamples to 10 features. that way we can evaluate complexity
+a bonus step we could then take M_10 and M_15 and evaluate on datasets subsamples to 10 features. that way we can evaluate complexity
+
+additionally, subsampling features introduces a source of randomness. to guard against this randomness in the data, we can repeat our evaluation step and then average across each run. This is similar to what TabArena does with its repeats. But keep in mind that tabarena employs repeats to guard against randomness introduced through different folds, not because of feature subsampling. so this is something we will have to directly implement.
 
 
