@@ -40,6 +40,7 @@ Closed-source priors do not share the code for the prior, but sometimes do descr
 - TabPFN-3 [[@grinsztajnTabPFN3TechnicalReport2026]] does not provide technical details of its prior, but it does distinguish between, and shows examples of, sampling the DAG and sampling functional mechanisms.
 - LimiX [[@zhangLimiXUnleashingStructuredData2025]] makes the same distinction. It specifies that DAGs are sampled through hierarchical generation based on local causal structures, while functional mechanisms include MLPs, convolutional layers, and DTs
 - TabPFN-2.5 [[@grinsztajnTabPFN25AdvancingState2026]] and TabFM [[@googleIntroducingTabFMZeroshot2026]] specify little details on their DAG sampling approach.
+- TabLDM [[@tabldmteamXiaomiTabLDMTabularFoundation2026]] seems to use [[@quTabICLv2BetterFaster2026]] prior: they use Cauchy.
 So while we do not have technical details from closed-source priors, most priors hint to a graph-generated DAG sampling approach.
 
 The following should probably be incorporated and condensed in the text above:
@@ -60,9 +61,9 @@ Table 1
 | Prior          |                                           |                 | Graph params |                               |                                 | Dataset params                            |                     |                     | Training params   |
 | -------------- | ----------------------------------------- | --------------- | ------------ | ----------------------------- | ------------------------------- | ----------------------------------------- | ------------------- | ------------------- | ----------------- |
 | **Model name** | **Reference**                             | **Open-source** | **DAG type** | **$p_\text{edge}$**           | **$n_\text{nodes}$**            | **$n_\text{features}$**                   | $n_\text{rows max}$ | $n_\text{datasets}$ | $n_\text{params}$ |
-| CFM            | [[@reuterUseWhatYou2026]]                 | ✅              | Erdös-Rényi  | $\text{Beta}(2, 3)$           | $\mathcal{U}(2, 52)$            | $n_\text{nodes} - 1$                      | 1000                | 1.6M                |                   |
-| TabICLv2       | [[@quTabICLv2BetterFaster2026]]           | ✅              | Cauchy       | N/A for Cauchy                | $\text{log-}\mathcal{U}(2, 32)$ | $\mathcal{U}(2, 100)$                     | 60K                 | 35M                 | 27.6M             |
-| TabPFN-2       | [[@hollmannAccuratePredictionsSmall2025]] | ❌              | GNR          | $\text{Gamma}(\alpha, \beta)$ | $\text{log-}\mathcal{U}(a, b)$  | $\text{Beta}(0.95, 8)$, scaled to $1-160$ | 10K                 | ~100M               | 7.2M              |
+| CFM            | [[@reuterUseWhatYou2026]]                 | ✅               | Erdös-Rényi  | $\text{Beta}(2, 3)$           | $\mathcal{U}(2, 52)$            | $n_\text{nodes} - 1$                      | 1000                | 1.6M                |                   |
+| TabICLv2       | [[@quTabICLv2BetterFaster2026]]           | ✅               | Cauchy       | N/A for Cauchy                | $\text{log-}\mathcal{U}(2, 32)$ | $\mathcal{U}(2, 100)$                     | 60K                 | 35M                 | 27.6M             |
+| TabPFN-2       | [[@hollmannAccuratePredictionsSmall2025]] | ❌               | GNR          | $\text{Gamma}(\alpha, \beta)$ | $\text{log-}\mathcal{U}(a, b)$  | $\text{Beta}(0.95, 8)$, scaled to $1-160$ | 10K                 | ~100M               | 7.2M              |
 
 ## Method
 
