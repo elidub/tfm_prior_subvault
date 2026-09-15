@@ -4,7 +4,7 @@ creation date: 26-08-17
 assigned:
 category:
   - after training
-status: backlog
+status: open
 ---
 - The analysis that allows [[Evaluation of number of features]] us to do.
 

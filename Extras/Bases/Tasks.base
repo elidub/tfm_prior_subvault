@@ -29,6 +29,7 @@ views:
         - backlog
         - open
         - progress
+        - merging
         - Done
     cardOrders:
       file.file: {}
