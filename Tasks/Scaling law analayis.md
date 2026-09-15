@@ -4,7 +4,7 @@ creation date: 26-08-17
 assigned:
 category:
   - after training
-status: open
+status: progress
 ---
 - [ ] Read up about [neural scaling laws](https://en.wikipedia.org/wiki/Neural_scaling_law) and some papers
 
