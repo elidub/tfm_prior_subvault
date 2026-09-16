@@ -14,3 +14,4 @@ status: open
 
 - max feature values of $3,5,15$ are just for the sketch
 - Normalized score could be any of the aggregating metrics from TabArena such as normalized ROC AUC, improvability, ELO, rank
+- Keep in mind that when creating the feature subsampling, datasets with less features than the subsample feature number are skipped/dropped. So TabArena dataset collections are strictly speaking not directly comparable. This will probably doesn't have much of an impact, but might still be good to check the impact. This can be done because indiviudal dataset scores are all logged to wandb.
