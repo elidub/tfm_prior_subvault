@@ -4,8 +4,7 @@ creation date: 26-08-19
 assigned: elias
 category:
   - during training
-status:
-  - merging
+status: Done
 ---
 Currenlty running a toy expeirment with `cd gtfm/gtfm`, `python pretrain.py exp=dev`
 

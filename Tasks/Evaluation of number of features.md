@@ -1,7 +1,7 @@
 ---
 tags:
 creation date: 26-08-10
-status: progress
+status: Done
 category:
   - before training
 ---
