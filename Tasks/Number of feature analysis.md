@@ -2,9 +2,10 @@
 tags:
 creation date: 26-08-17
 assigned:
+  - elias
 category:
   - after training
-status: open
+status: progress
 ---
 - The analysis that allows [[Evaluation of number of features]] us to do.
 

@@ -2,6 +2,7 @@
 tags:
 creation date: 26-08-17
 assigned:
+  - elias
 category:
   - after training
 status: progress
