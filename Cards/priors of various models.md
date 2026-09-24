@@ -1,0 +1,23 @@
+- EXAONE-Tabular
+
+	- Utilizes SCMs
+	- task hyperparameters: not much info given. distributions arent specified
+	- DAG: graph model isnt specified
+
+- iLTM
+	- pretrained on 1800 classification datasets
+	- limited information
+- ChimeraBoost
+- TabSwift
+	- follows the prior design of TabICL. Offline generates a pool of 20,000 pretraining steps. Each step contains 512 tasks. Each task is capped at 2000 rows and 100 features. 
+	- limited information
+- Nori
+	- SCMs
+	- prior design follows tabicl
+	- rows and features are sampled using a 'biased log uniform'. so samples ~ uniform(50,2000) but then raised to the power (alpha = 1.3 for features, 1.5 for rows). features ~ uniform(2,250). This skews the datasets more towards the higher end but still not as much as a plain uniform distribution does
+- TabPFN - 3.5
+	- prior design takes inspirate from TabICLv2. focuses on generating more realistic dtatsets so encodes high cardinailty categorical variables. 
+	- prior adjusted to to generate more realistic datasets with large feature counts and grouped data (the test set is pulled from a different distribution that the train set is)
+- limix-2
+	- rather than sampling hyperparameters from a specified distribution, they first sample the distribution and then sample the hyperparameter. 
+	- _We generate DAGs that depict the structural dependencies among variables in a hierarchical manner. The overall DAG is composed of multiple local causal structures (LCSs), which is specified as causal motifs (Barjašić et al., 2021) in this practice. Each causal motif may contain multiple input and output nodes and encodes directed dependencies among variables, such as chain, confounding, and collider structures (Peters et al., 2017; Pearl et al., 2016). Through recursive expansion of causal motifs at multiple granularities, the induced DAG can simultaneously capture macro- and micro-level dependencies with complex local topologies. In addition, we allow topology-constrained graph transformation (Maslov & Sneppen, 2002; Sanfeliu & Fu, 1983) on the DAG, where operations such as edge redirection, local path replacement, and node-level structural transformations are randomly selected and applied. These operations further enrich the local topology while preserving the acyclicity of the graph, allowing the resulting DAGs to exhibit diverse connectivity patterns and information-propagation pathways._

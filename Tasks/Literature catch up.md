@@ -14,3 +14,5 @@ Check these new models on TabArena, and check if they do anything interesting re
 - TabSwift
 - SAP-RPT-OSS
 - Nori
+
+[[priors of various models]]
